@@ -112,11 +112,11 @@ local Slider = Tab:Slider({
 	name = "Jump Power",
 	minimum = 1,
 	maximum = 1000,
-	default = 50,
+	default = 10,
 	valuename = "Jump Power",
 	gradient = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 100, 0))};
 	callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.HipHeight = tonumber(Value)
+		game.Players.LocalPlayer.Character.Humanoid.JumpHeight = tonumber(Value)
 	end
 })
 
