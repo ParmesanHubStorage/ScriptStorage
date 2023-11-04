@@ -328,7 +328,7 @@ local Slider = Tab:Slider({
 
 local Tab = Main:CreateTab({
 	name = "Autofarm",
-	icon = "rbxassetid://15101013637"
+	icon = "rbxassetid://15116269420"
 })
 
 Tab:Section({
@@ -703,7 +703,7 @@ local Toggle = Tab:Toggle({
 
 local Tab = Main:CreateTab({
 	name = "Teleport",
-	icon = "rbxassetid://15101013637"
+	icon = "rbxassetid://15105266838"
 })
 
 Tab:Section({
@@ -759,7 +759,7 @@ local Button = Tab:Button({
 
 local Tab = Main:CreateTab({
 	name = "Misc",
-	icon = "rbxassetid://15101013637"
+	icon = "rbxassetid://15101016621"
 })
 
 Tab:Section({
