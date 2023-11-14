@@ -1333,9 +1333,9 @@ local Toggle = Tab:Toggle({
 		temp2 = game:GetService("RunService").Heartbeat:Connect(function()
 			if _G.AutoUnban == true then
 				for i,v in pairs(game:GetService("Workspace")["001_Lots"]:GetChildren()) do
-					if v:IsA("Part") and v:FindFirstChild("HousePickedByPlayer") then
+					if v.Name ~= "For Sale" and v:FindFirstChild("HousePickedByPlayer") then
 						for a,b in pairs(v.HousePickedByPlayer.HouseModel:GetChildren()) do
-							if (string.sub(b.Name, 1, 11)) == "BannedBlock" then
+							if b.ClassName == "Part" and (string.sub(b.Name, 1, 11)) == "BannedBlock" then
 								b:Destroy()
 								break
 							end
