@@ -562,13 +562,18 @@ Tab:Section({
 	text = "Copy Avatar"
 })
 
-local Input = Tab:Input({
-	name = "Enter Player's Name",
-	placeholdertext = "Player",
-	cleartextonfocus = true,
-	callback = function(Value)
-		_G.CopyPlayerAvatarName = tostring(Value)
-	end
+local Dropdown = nil
+Dropdown = Tab:Dropdown({
+	name = "Choose a Player",
+	callback = function(Name, Value)
+		_G.CopyPlayerAvatarName = Name
+	end,
+	opencallback = function()
+		Dropdown:Clear()
+		for i,v in pairs(game.Players:GetChildren()) do
+			Dropdown:Add(v.Name, nil)
+		end
+	end,
 })
 
 local Button = Tab:Button({
@@ -708,15 +713,20 @@ local Input = Tab:Input({
 	end
 })
 
-local Input = Tab:Input({
+local Dropdown = nil
+Dropdown = Tab:Dropdown({
 	name = "Copy RP Name of the Player",
-	placeholdertext = "Player",
-	cleartextonfocus = true,
-	callback = function(Value)
-		game:GetService("ReplicatedStorage").RE["1RPNam1eTex1t"]:FireServer("RolePlayName", game.Players:FindFirstChild(Value).PlayersBag.RPName.Value)
+	callback = function(Name, Value)
+		game:GetService("ReplicatedStorage").RE["1RPNam1eTex1t"]:FireServer("RolePlayName", game.Players:FindFirstChild(Name).PlayersBag.RPName.Value)
 		task.wait(0.3)
-		game:GetService("ReplicatedStorage").RE["1RPNam1eColo1r"]:FireServer("PickingRPNameColor", game.Players:FindFirstChild(Value).PlayersBag.RPNameColor.Value)
-	end
+		game:GetService("ReplicatedStorage").RE["1RPNam1eColo1r"]:FireServer("PickingRPNameColor", game.Players:FindFirstChild(Name).PlayersBag.RPNameColor.Value)
+	end,
+	opencallback = function()
+		Dropdown:Clear()
+		for i,v in pairs(game.Players:GetChildren()) do
+			Dropdown:Add(v.Name, nil)
+		end
+	end,
 })
 
 local Button = Tab:Button({
@@ -762,15 +772,20 @@ local Input = Tab:Input({
 	end
 })
 
-local Input = Tab:Input({
-	name = "Copy Bio of the Player",
-	placeholdertext = "Player",
-	cleartextonfocus = true,
-	callback = function(Value)
-		game:GetService("ReplicatedStorage").RE["1RPNam1eTex1t"]:FireServer("RolePlayBio", game.Players:FindFirstChild(Value).PlayersBag.RPBio.Value)
+local Dropdown = nil
+Dropdown = Tab:Dropdown({
+	name = "Copy RP Name of the Player",
+	callback = function(Name, Value)
+		game:GetService("ReplicatedStorage").RE["1RPNam1eTex1t"]:FireServer("RolePlayBio", game.Players:FindFirstChild(Name).PlayersBag.RPBio.Value)
 		task.wait(0.3)
-		game:GetService("ReplicatedStorage").RE["1RPNam1eColo1r"]:FireServer("PickingRPBioColor", game.Players:FindFirstChild(Value).PlayersBag.RPBioColor.Value)
-	end
+		game:GetService("ReplicatedStorage").RE["1RPNam1eColo1r"]:FireServer("PickingRPBioColor", game.Players:FindFirstChild(Name).PlayersBag.RPBioColor.Value)
+	end,
+	opencallback = function()
+		Dropdown:Clear()
+		for i,v in pairs(game.Players:GetChildren()) do
+			Dropdown:Add(v.Name, nil)
+		end
+	end,
 })
 
 local Button = Tab:Button({
@@ -1203,13 +1218,18 @@ Tab:Section({
 	text = "Spam Bell / Knock"
 })
 
-local Input = Tab:Input({
-	name = "Enter Target Name",
-	placeholdertext = "Player",
-	cleartextonfocus = true,
-	callback = function(Value)
-		_G.BellKnockTarget = tostring(Value)
-	end
+local Dropdown = nil
+Dropdown = Tab:Dropdown({
+	name = "Choose the Target",
+	callback = function(Name, Value)
+		_G.BellKnockTarget = Name
+	end,
+	opencallback = function()
+		Dropdown:Clear()
+		for i,v in pairs(game.Players:GetChildren()) do
+			Dropdown:Add(v.Name, nil)
+		end
+	end,
 })
 
 local Toggle = Tab:Toggle({
@@ -1242,13 +1262,18 @@ Tab:Section({
 	text = "Roommate Player"
 })
 
-local Input = Tab:Input({
-	name = "Enter Target Name",
-	placeholdertext = "Input",
-	cleartextonfocus = true,
-	callback = function(Value)
-		_G.RoomMateTarget = tostring(Value)
-	end
+local Dropdown = nil
+Dropdown = Tab:Dropdown({
+	name = "Choose the Target",
+	callback = function(Name, Value)
+		_G.RoomMateTarget = Name
+	end,
+	opencallback = function()
+		Dropdown:Clear()
+		for i,v in pairs(game.Players:GetChildren()) do
+			Dropdown:Add(v.Name, nil)
+		end
+	end,
 })
 
 local Dropdown = Tab:Dropdown({
@@ -1290,7 +1315,7 @@ local Button = Tab:Button({
 		for i,v in pairs(game:GetService("Workspace")["001_Lots"]:GetChildren()) do
 			if v:IsA("Part") and v:FindFirstChild("HousePickedByPlayer") then
 				for a,b in pairs(v.HousePickedByPlayer.HouseModel:GetChildren()) do
-					if b.Name:find("BannedBlock") then
+					if b.Name:string.find("BannedBlock") then
 						b:Destroy()
 						break
 					end
@@ -1311,7 +1336,7 @@ local Toggle = Tab:Toggle({
 					for i,v in pairs(game:GetService("Workspace")["001_Lots"]:GetChildren()) do
 						if v:IsA("Part") and v:FindFirstChild("HousePickedByPlayer") then
 							for a,b in pairs(v.HousePickedByPlayer.HouseModel:GetChildren()) do
-								if b.Name:find("BannedBlock") then
+								if b.Name:string.find("BannedBlock") then
 									b:Destroy()
 									break
 								end
@@ -1494,7 +1519,7 @@ Tab:Section({
 })
 
 local Toggle = Tab:Toggle({
-	name = "Toggle Name",
+	name = "Rainbow Car",
 	callback = function(Value)
 		_G.RainbowCar = Value
 		while _G.RainbowCar == true do
