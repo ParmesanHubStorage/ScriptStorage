@@ -1315,7 +1315,7 @@ local Button = Tab:Button({
 		for i,v in pairs(game:GetService("Workspace")["001_Lots"]:GetChildren()) do
 			if v:IsA("Part") and v:FindFirstChild("HousePickedByPlayer") then
 				for a,b in pairs(v.HousePickedByPlayer.HouseModel:GetChildren()) do
-					if b.Name:string.find("BannedBlock") then
+					if b.Name:find("BannedBlock") then
 						b:Destroy()
 						break
 					end
@@ -1336,7 +1336,7 @@ local Toggle = Tab:Toggle({
 					for i,v in pairs(game:GetService("Workspace")["001_Lots"]:GetChildren()) do
 						if v:IsA("Part") and v:FindFirstChild("HousePickedByPlayer") then
 							for a,b in pairs(v.HousePickedByPlayer.HouseModel:GetChildren()) do
-								if b.Name:string.find("BannedBlock") then
+								if b.Name:find("BannedBlock") then
 									b:Destroy()
 									break
 								end
