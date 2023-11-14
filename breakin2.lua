@@ -642,7 +642,7 @@ else
 		end,
 	})
 	
-	for name, v in pairs(ItemsTable) do
+	for index, name in pairs(ItemsTable) do
 		Dropdown:Add(name, nil)
 	end
 	
