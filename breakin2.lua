@@ -445,7 +445,7 @@ else
 		name = "Walk Speed",
 		minimum = 1,
 		maximum = 1000,
-		default = game.Player.LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed,
+		default = game.Players.LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").WalkSpeed,
 		valuename = "walkspeed",
 		gradient = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 100, 0))};
 		callback = function(Value)
@@ -473,7 +473,7 @@ else
 		name = "Jump Power",
 		minimum = 1,
 		maximum = 1000,
-		default = game.Player.LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").JumpPower,
+		default = game.Players.LocalPlayer:WaitForChild("Character"):WaitForChild("Humanoid").JumpPower,
 		valuename = "jumppower",
 		gradient = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 100, 0))};
 		callback = function(Value)
