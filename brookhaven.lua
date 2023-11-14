@@ -1315,7 +1315,7 @@ local Button = Tab:Button({
 		for i,v in pairs(game:GetService("Workspace")["001_Lots"]:GetChildren()) do
 			if v:IsA("Part") and v:FindFirstChild("HousePickedByPlayer") then
 				for a,b in pairs(v.HousePickedByPlayer.HouseModel:GetChildren()) do
-					if b.Name:find("BannedBlock") then
+					if (string.sub(b.Name, 1, 11)) == "BannedBlock" then
 						b:Destroy()
 						break
 					end
@@ -1331,12 +1331,12 @@ local Toggle = Tab:Toggle({
 		_G.AutoUnban = Value
 		if _G.AutoUnban == true then
 			local temp2
-			temp2 = game:GetService("RunService").Stepped:connect(function()
+			temp2 = game:GetService("RunService").Heartbeat:connect(function()
 				if _G.AutoUnban == true then
 					for i,v in pairs(game:GetService("Workspace")["001_Lots"]:GetChildren()) do
 						if v:IsA("Part") and v:FindFirstChild("HousePickedByPlayer") then
 							for a,b in pairs(v.HousePickedByPlayer.HouseModel:GetChildren()) do
-								if b.Name:find("BannedBlock") then
+								if (string.sub(b.Name, 1, 11)) == "BannedBlock" then
 									b:Destroy()
 									break
 								end
