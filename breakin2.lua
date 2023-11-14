@@ -688,7 +688,7 @@ else
 	})
 	
 	local Button = Tab:Button({
-		name = "Button Name",
+		name = "Hell All Players",
 		callback = (function()
 			HealAllPlayers()
 		end)
@@ -1047,7 +1047,7 @@ else
 	})
 	
 	local Toggle = Tab:Toggle({
-		name = "Toggle Name",
+		name = "Full Bright",
 		callback = function(Value)
 			if Value == true then
 				Lighting.Brightness = 1
